@@ -9,7 +9,7 @@ int main()
  if ((i < 0 && j < 0) || (i >= 0 &&  j>= 0))
   printf("positif\n.");
  else
-  printf("négatif");
+  printf("negatif");
  printf(".\n");
  return 0;
 }
