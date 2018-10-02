@@ -1,6 +1,6 @@
 #include<stdio.h>
 
-void main()
+int main()
 {
   int x = 3;
   int* p;
@@ -8,4 +8,5 @@ void main()
   printf("x = %d\n", x);
   *p = 4;
   printf("x = %d\n", x);
+  return 0;
 }

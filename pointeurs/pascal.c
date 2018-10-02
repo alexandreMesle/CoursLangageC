@@ -1,5 +1,4 @@
 #include<stdio.h>
-#include<malloc.h>
 #include<stdlib.h>
 
 int getIntVal(int* p)
@@ -154,8 +153,9 @@ void freePascal(int** p, int n)
   free(p);
 }
 
-main()
+int main()
 {
   int** p = pascal(15);
   printPascal(p, 15);
+  return 0;
 }

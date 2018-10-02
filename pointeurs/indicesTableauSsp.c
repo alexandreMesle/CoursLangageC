@@ -5,21 +5,22 @@ void initTab(char* k, int n)
 {
   int i;
   int v = 'A';
-  for(i = 0 ; i < n ; i++)
-     *(k + i) = v++;
+  for(i = 0 ; i < n ; i++, k++, v++)
+     *k = v;
 }
 
 void afficheTab(char* k, int n)
 {
   int i;
-  for(i = 0 ; i < n ; i++)
-    printf("%c ", *(k + i));
+  for(i = 0 ; i < n ; i++, k++)
+    printf("%c ", *k);
   printf("\n");
 }
 
-main()
+int main()
 {
   char t[N];
   initTab(t, N);
   afficheTab(t, N);
+  return 0;
 }

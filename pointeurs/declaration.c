@@ -1,8 +1,9 @@
 #include<stdio.h>
 
-void main()
+int main()
 {
   int x = 3;
   int* p;
   p = &x;
+  return 0;
 }

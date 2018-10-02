@@ -25,7 +25,7 @@ void decr2(int* x)
   *x = *x - 1;
 }
 
-main()
+int main()
 {
   int i = 1;
   int j = 1;
@@ -42,4 +42,5 @@ main()
       decr2(&i);
     }
   affiche2int(i, j);
+  return 0;
 }

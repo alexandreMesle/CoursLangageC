@@ -1,6 +1,6 @@
 #include<stdio.h>
 
-void main()
+int main()
 {
   int x = 3;
   int y = 5;
@@ -13,4 +13,5 @@ void main()
   printf("*p = %d\n", *p);
   *p = *p + 1;
   printf("y = %d\n", y);  
+  return 0;
 }

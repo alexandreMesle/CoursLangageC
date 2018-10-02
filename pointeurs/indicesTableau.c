@@ -1,7 +1,7 @@
 #include<stdio.h>
 #define N 26
 
-main()
+int main()
 {
   char t[N];
   char v = 'A';
@@ -18,4 +18,5 @@ main()
     printf("%c ", *(p + i));
 
   printf("\n");
+  return 0;
 }
