@@ -1,6 +1,5 @@
 #include<stdio.h>
 #include<stdlib.h>
-#include<malloc.h>
 
 #define N 10
 
@@ -28,7 +27,10 @@ int main()
   int i;
   l = (maillon*)malloc(N * sizeof(maillon));
   if (l == NULL)
-    exit(0);
+    {
+      printf("Plus de mémoire");
+      return 1;
+    }
   l->data = 0;
   (l + 1)->data = 1;
   (l + N - 2)->next = l + 1;

@@ -1,5 +1,4 @@
 #include<stdio.h>
-#include<malloc.h>
 #include<stdlib.h>
 
 #define N 10
@@ -60,7 +59,7 @@ int main()
   point* p;
   p = (point*)malloc(N * sizeof(point));
   if (p == NULL)
-    exit(0);
+    return -1;
   initTableauPoints(p, N);
   afficheTableauPoints(p, N);  
   free(p);

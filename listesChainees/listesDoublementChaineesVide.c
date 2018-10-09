@@ -1,5 +1,4 @@
 #include<stdio.h>
-#include<malloc.h>
 #include<stdlib.h>
 
 #define N 10

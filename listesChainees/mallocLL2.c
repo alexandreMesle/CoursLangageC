@@ -1,6 +1,5 @@
 #include<stdio.h>
 #include<stdlib.h>
-#include<malloc.h>
 
 #define N 10
 
@@ -30,7 +29,7 @@ maillon* initLL(int n)
   int i;
   first = (maillon*)malloc(sizeof(maillon));
   if(first == NULL)
-    exit(0);
+    return NULL;
   first->data = 0;
   previous = first;
   for(i = 1 ; i < n ; i++)
@@ -65,6 +64,8 @@ int main()
 {
   maillon* l;
   l = initLL(N);
+  if (l == NULL)
+    return -1;
   printLL(l);
   freeLL(l);
   return 0;

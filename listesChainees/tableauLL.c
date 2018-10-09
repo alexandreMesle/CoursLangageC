@@ -1,6 +1,5 @@
 #include<stdio.h>
 #include<stdlib.h>
-#include<malloc.h>
 
 #define N 10
 
@@ -28,7 +27,7 @@ int main()
   int i;
   l = (maillon*)malloc(N * sizeof(maillon));
   if (l == NULL)
-    exit(0);
+    return -1;
   l->data = 0;
   for(i = 1 ; i < N ; i++)
     {

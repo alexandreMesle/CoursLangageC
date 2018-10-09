@@ -1,5 +1,4 @@
 #include<stdio.h>
-#include<malloc.h>
 #include<stdlib.h>
 
 #define N 10
@@ -66,7 +65,10 @@ dLinkedList* makeDLL()
   dLinkedList* l;
   l = (dLinkedList*)malloc(sizeof(dLinkedList)); 
   if(l == NULL)
-    exit(0);
+    {
+      printf("Plus de mémoire");
+      return NULL;
+    }
   l->first = NULL;
   l->last = NULL;
   return l;

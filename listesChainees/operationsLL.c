@@ -1,6 +1,5 @@
 #include<stdio.h>
 #include<stdlib.h>
-#include<malloc.h>
 
 #define N 10
 
@@ -27,7 +26,10 @@ maillon* creeMaillon(int n)
   maillon* l;
   l = (maillon*)malloc(sizeof(maillon));
   if(l == NULL)
-    exit(0);
+    {
+      printf("Impossible de créer un maillon.");
+      return NULL;
+    }
   l->data = n;
   l->next = NULL;
   return l;
