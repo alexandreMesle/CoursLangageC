@@ -12,7 +12,7 @@ int main()
     }
   while((c = fgetc(f)) != EOF)
     printf("caractere lu : %c\n", c);
-  if (fclose(f) != 0)
+  if (fclose(f))
     {
       printf("Erreur lors de la fermeture du fichier toto.txt\n");
       return -1;

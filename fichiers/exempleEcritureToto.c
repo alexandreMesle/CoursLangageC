@@ -3,7 +3,7 @@
 int main()
 {
   FILE* f;
-  char c[7] = "Toto !";
+  char c[8] = "Toto !\n";
   int i;
   f = fopen("toto.txt", "w");
   if (f == NULL)
@@ -11,12 +11,12 @@ int main()
       printf("Erreur lors de l'ouverture du fichier toto.txt\n");
       return -1;
     }
-  for(i = 0 ; i < 6 ; i++)
+  for(i = 0 ; i < 7 ; i++)
     fputc(c[i], f);
-  if (fclose(f) != 0)
+  if (fclose(f))
     {
       printf("Erreur lors de la fermeture du fichier toto.txt\n");
-      return -1;
+      return -2;
     }
   return 0;
 }
