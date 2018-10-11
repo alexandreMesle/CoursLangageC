@@ -1,9 +1,11 @@
+#include "../../src/methodo/tableau.h"
+
 #include<stdio.h>
 #include<malloc.h>
 #include<string.h>
 #include<stdlib.h>
-#include"util.h"
-#include"tableau.h"
+
+#include "util.h"
 
 /**********************************************************/
 

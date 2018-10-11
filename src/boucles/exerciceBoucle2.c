@@ -9,8 +9,8 @@ int main()
     {
       d = 0;
       for(b = 0 ; b < N ; b++)
-	d+=b; 
-      c += d
+    	  d+=b;
+      c += d;
     }
   printf("a = %d, b = %d, c = %d, d = %d", a, b, c, d);
   return 0;

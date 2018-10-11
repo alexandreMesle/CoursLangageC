@@ -1,8 +1,8 @@
 #include<stdio.h>
 #include<stdlib.h>
 
-#include"util.h"
-#include"tableau.h"
+#include "tableau.h"
+#include "util.h"
 
 #define AFFICHER_OPTION 1
 #define SUPPRIMER_OPTION 2

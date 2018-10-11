@@ -1,8 +1,5 @@
 #include<stdio.h>
 
-AFFICHE_INT(inf, sup)\
-printf("[%f, %f]", inf, sup)
-
 int main()
 {
   float inf1, sup1, inf2, sup2,
@@ -27,25 +24,25 @@ int main()
   infIntersection = (inf1 > inf2) ? inf1 : inf2;
   supIntersection = (sup1 < sup2) ? sup1 : sup2;
   intersectionNonVide = infIntersection < supIntersection;
-  AFFICHE_INT(inf1, sup1);
+  printf("[%f, %f]", inf1, sup1);
   if (inclusion1)
       prinftf(" est");
   else
       prinftf(" n'est pas");
   prinftf(" inclus dans ");
-  AFFICHE_INT(inf2, sup2);
+  printf("[%f, %f]", inf2, sup2);
   printf("\n");
-  AFFICHE_INT(inf2, sup2);
+  printf("[%f, %f]", inf2, sup2);
   if (inclusion2)
       prinftf(" est");
   else
       prinftf(" n'est pas");
   prinftf(" inclus dans ");
-  AFFICHE_INT(inf1, sup1);
+  printf("[%f, %f]", inf1, sup1);
   printf("\nL'intersection de ");  
-  AFFICHE_INT(inf1, sup1);
+  printf("[%f, %f]", inf1, sup1);
   printf(" et de ");  
-  AFFICHE_INT(inf2, sup2);
+  printf("[%f, %f]", inf2, sup2);
   printf(" est ");  
   if (intersectionNonVide)
       prinftf("non ");

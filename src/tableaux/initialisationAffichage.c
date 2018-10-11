@@ -1,6 +1,6 @@
 #include<stdio.h>
 
-#define n 10
+#define N 10
 
 int main()
 {

@@ -5,10 +5,11 @@ void incr(int v)
   v++;
 }
 
-main()
+int main()
 {
   int i;
   i = 6;
   incr(i);
   printf("%d\n", i);
+  return 0;
 }

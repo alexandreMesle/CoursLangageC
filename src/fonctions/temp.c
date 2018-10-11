@@ -1,5 +1,4 @@
 #include<stdio.h>
-//#include<stdlib.h>
 
 void afficheCaractere(char c)
 {
@@ -37,7 +36,6 @@ void unCaractereAvecReturn(int i, char c)
 
 void deuxCaracteres(int i, int j, char c)
 {
-     int k;
      if (i > j)
            deuxCaracteres(j, i, c);
      else 
@@ -101,7 +99,7 @@ void croix(int n)
      deuxCaracteres(1, 2*n - 1, '*');
 }
 
-main()
+int main()
 {
       int taille;
       printf("Saisissez la taille des figures\n");
@@ -109,5 +107,5 @@ main()
       carre(taille);
       losange(taille);
       croix(taille);
-      //getch();
+      return 0;
 }

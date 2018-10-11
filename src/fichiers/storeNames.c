@@ -8,12 +8,12 @@ int main(int argv, char** argc)
 	f = fopen(*(argc + 1), "w");
 	if (f == NULL)
 		return 1;
-	gets(buffer);
+	fgets(buffer, 250, stdin);
 	while(strcmp("-1", buffer))
 	{
 		fputs(buffer, f);
 		fputc('\n', f);
-		gets(buffer);
+		fgets(buffer, 250, stdin);
 	}
 	fclose(f);
 	return 0;

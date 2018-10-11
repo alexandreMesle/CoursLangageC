@@ -4,6 +4,6 @@ main()
 {
   char word[40];
   printf("ton nom : ");
-  gets(word);
+//  gets(word);
   printf("Tu as saisi : %s\n", word);
 }

@@ -7,9 +7,8 @@
 
 int main()
 {
-  unsigned short decimal = 1, decomposition;
-  unite = decimal % 10;
-  dizaine = (decimal - unite)/10;
-  
+  unsigned short decimal = 1,
+		  unite = decimal % 10,
+  	  	  dizaine = (decimal - unite)/10;
   return 0;
 }
