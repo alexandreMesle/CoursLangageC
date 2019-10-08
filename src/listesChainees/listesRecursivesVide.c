@@ -1,4 +1,5 @@
 #include<stdio.h>
+#include<stdlib.h>
 
 /*
   Dans toutes les fonctions à partir d'insere, il est interdit de
@@ -19,9 +20,17 @@ typedef struct lls
   valeurs data et next, retourne son adresse.
 */
 
-ll* creer(int data, ll* next)
+ll* cree(int data, ll* next)
 {
-  return NULL;
+  ll* maillon = (ll*)malloc(sizeof(ll));
+  if (maillon == NULL)
+  {
+    printf("Plus de mémoire");
+    exit(1);
+  }
+  maillon->data = data;
+  maillon->next = next;
+  return maillon;
 }
 
 /********************************************************/
@@ -32,6 +41,7 @@ ll* creer(int data, ll* next)
 
 void affiche(ll* l)
 {
+  printf("%d -> ", l->data);
 }
 
 /********************************************************/
@@ -42,6 +52,13 @@ void affiche(ll* l)
 
 void afficheTout(ll* l)
 { 
+  if (l != NULL)
+    {
+      affiche(l);
+      afficheTout(l->next);
+    }
+  else
+    printf("\n");
 }
 
 /********************************************************/
@@ -53,6 +70,11 @@ void afficheTout(ll* l)
 
 void afficheALEnvers(ll* l)
 {
+  if (l != NULL)
+    {
+      afficheALEnvers(l->next);
+      affiche(l);
+    }
 }
 
 /********************************************************/
@@ -62,8 +84,13 @@ void afficheALEnvers(ll* l)
   a NULL.
 */
 
-void detruit(ll** l)
-{ 
+void detruit(ll* l)
+{
+  if (l != NULL)
+    {
+      detruit(l->next);
+      free(l);
+    }
 }
 
 /********************************************************/
@@ -74,7 +101,9 @@ void detruit(ll** l)
 
 ll* entiersALEnvers(int n)
 {
-  return NULL;
+  if (n < 1)
+    return NULL;
+  return cree(n, entiersALEnvers(n - 1));
 }
 
 /********************************************************/
@@ -154,5 +183,9 @@ ll* triFusion(ll* l)
 
 int main()
 {
+  ll* maillon = entiersALEnvers(10);
+  afficheTout(maillon);
+  afficheALEnvers(maillon);
+  detruit(maillon);
   return 0;
 }
