@@ -4,6 +4,12 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+typedef struct noeud
+{
+  int valeur;
+  struct noeud *gauche, *droite;
+}noeud_t;
+
 typedef struct maillon_t
 {
   int valeur;
@@ -114,8 +120,82 @@ maillon_t* tri_fusion(maillon_t* liste)
   return maillon_interclasse(liste_1, liste_2);
 }
 
+noeud_t* noeud_cree(int valeur, noeud_t* gauche, noeud_t* droite)
+{
+  noeud_t* noeud = (noeud_t*)malloc(sizeof(noeud_t));
+  if (noeud == NULL)
+    {
+      printf("Plus de Mémoire !!!!!!!!");
+      exit(-1);
+    }
+  noeud->valeur = valeur;
+  noeud->gauche = gauche;
+  noeud->droite = droite;
+  return noeud;
+}
+
+void noeud_libere(noeud_t* noeud)
+{
+  if (noeud == NULL)
+    {
+      noeud_libere(noeud->gauche);
+      noeud_libere(noeud->droite);
+      free(noeud);
+    }
+}
+
+int noeud_contient(noeud_t* noeud, int valeur)
+{
+  if (noeud == NULL)
+    return 0;
+  if (noeud->valeur == valeur)
+    return 1;
+  if (valeur < noeud->valeur)
+    return noeud_contient(noeud->gauche, valeur);
+  return noeud_contient(noeud->droite, valeur);
+}
+
+noeud_t* noeud_insere(noeud_t* noeud, int valeur)
+{
+  if (noeud == NULL)
+    return noeud_cree(valeur, NULL, NULL);
+  if (valeur < noeud->valeur)
+    noeud->gauche = noeud_insere(noeud->gauche, valeur);
+  else
+    noeud->droite = noeud_insere(noeud->droite, valeur);
+  return noeud;    
+}
+
+noeud_t* noeud_compte_a_rebours(int n)
+{
+  if (n >= 0)
+    return noeud_cree(n, noeud_compte_a_rebours(n-1), noeud_compte_a_rebours(n-1));
+  else
+    return NULL;
+}
+
+void noeud_affiche(noeud_t* noeud)
+{
+  if (noeud != NULL)
+    {
+      printf("(");
+      noeud_affiche(noeud->gauche);
+      printf(" %d ", noeud->valeur);
+      noeud_affiche(noeud->droite);
+      printf(")");
+    }
+}
+
+noeud_t* noeud_aleatoire(int taille)
+{
+  if (taille == 0)
+    return NULL;
+  return noeud_insere(noeud_aleatoire(taille - 1), rand()%MODULE);
+}
+
 int main()
 { 
+  /*
   maillon_t* liste = maillon_aleatoire(N);
   printf("début du tri fusion\n");
   liste = tri_fusion(liste);
@@ -126,5 +206,10 @@ int main()
   liste = maillon_trie(liste);
   printf("fin du tri insertion\n");
   maillon_libere(liste);
+  */
+  noeud_t* noeud = noeud_aleatoire(10);
+  noeud_affiche(noeud);
+  printf("\n");
+  noeud_libere(noeud);
   return 0;
 }
